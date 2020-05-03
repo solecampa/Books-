@@ -1,0 +1,102 @@
+
+
+#mainNav p{
+    text-transform: capitalize;
+}
+
+
+#register{
+    padding-top : 60px;
+}
+
+.intro{
+    background-image: url(book2.jpg);
+    height: 600px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    margin: 0px;
+    margin-right: 0px;
+}
+
+.intro h1{
+    font-size: 50px;
+}
+
+#hi{
+    text-transform: capitalize;    
+}
+
+#search{
+    padding: 20px;
+}
+
+#lista{
+    list-style-type: none;
+    padding: 5px;
+    font-size: 35px;
+}
+
+#book {
+    padding: 20px;
+}
+
+#rev {
+    list-style-type: none;
+    padding: 5px;
+}
+
+#rev h4{
+    text-transform: capitalize; 
+    
+}
+
+#score{
+    padding: 15px 0px 15px 0px;
+    font-size: 30px;
+       
+}
+
+#rate{
+    padding: 0px 5px 0px 0px;
+}
+
+#comentario{
+    padding: 15px 0px 10px 10px;
+    max-width: 900px;
+    height: 150px;
+    
+}
+
+.form-check{
+   
+    padding: 10px;
+    font-size: 20px;
+}
+
+.send{
+    
+    margin-left: 10px;
+}
+
+i{
+    color: rgb(189, 134, 16) ;
+}
+
+.revcom{
+    
+    max-width: 900px;
+}
+
+.message{
+    list-style-type: none;
+    max-width: 500px;
+}
+
+#goodreads p{
+    
+    margin: auto;
+    text-align: center;
+    max-width: 200px;
+    padding: 5px;
+}

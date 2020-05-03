@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Book
+{% endblock %}
+
+{% block body %}
+ 
+    <div class="container text-center" id="book">
+        <h1> {{ book.title }} </h1> 
+        <p> by {{ book.author }}, {{ book.year}} - {{ book.isbn }} </p>
+     
+    </div> 
+
+    
+    <div class="text-center " id="goodreads">
+        <h5>  Goodreads reviews  </h5> 
+        <p class="text-secondary"> Average rating: {{ average }} </p>
+        <p class="text-secondary" > Rating counts: {{ rating }} </p>
+
+     
+    </div> 
+    <hr>
+    <div class="container revcom">
+        
+        <form  method="post">
+            <div class="container" id="score">
+
+                <div class="form-check form-check-inline" required>
+                    <div class="input-group-prepend" id="rate" >
+                        <span class="input-group-text">Rate the book</span>
+                    </div>
+                    <input class="form-check-input" name="score" type="radio" id="exampleRadios1" value="1" >
+                    <label class="form-check-label" for="exampleRadios1">1 <i class="fas fa-star"></i></label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" name="score" type="radio" id="exampleRadios2" value="2" >
+                    <label class="form-check-label" for="exampleRadios2">2 <i class="fas fa-star"></i></label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" name="score"  type="radio" id="exampleRadios3" value="3" >
+                    <label class="form-check-label" for="exampleRadios3">3 <i class="fas fa-star"></i></label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" name="score" type="radio" id="exampleRadios4" value="4">
+                    <label class="form-check-label" for="exampleRadios4">4 <i class="fas fa-star"></i></label>
+                </div>       
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" name="score" type="radio" id="exampleRadios5" value="5">
+                    <label class="form-check-label" for="exampleRadios5">5 <i class="fas fa-star"></i></label>
+                </div>           
+            </div>
+
+            <div class="input-group" id="comentario">
+                <div class="input-group-prepend" required>
+                    <span class="input-group-text">Comment</span>
+                </div>
+                <textarea class="form-control" aria-label="With textarea" name="opinion" placeholder="leave you opinion" required >
+                
+                </textarea> 
+            </div>    
+
+            <div class="form-group">
+                <button class="btn btn-secondary send">Send</button>
+            </div>            
+        </form>
+
+        <div class= "container message">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul class="alert alert-secondary message text-center" role="alert">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+        </div>
+
+        <div class="container" >
+
+            <ul>
+                {% for review in reviews %}
+                    <li id="rev">
+            
+                        <h4 class="username text-primary" > {{review.username}}</h4> {{ review.score }} <i class="fas fa-star"></i></h4>
+                         <p class="">  {{ review.opinion }}   </p>     
+                         <hr>
+                           
+                         
+                         
+                    
+                    </li>
+                {% endfor %}
+            </ul>
+    
+        </div>
+    
+
+     
+
+
+    </div>
+
+
+{% endblock %}

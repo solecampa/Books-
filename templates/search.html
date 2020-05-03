@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Books
+{% endblock %}
+
+{% block body %}
+    <div class="container" id="search">
+    <h1 class="text-center" id="hi"> hi! {{ username }} </h1>
+    <h2 >Find your Book</h2>
+
+    <form action="{{ url_for('user') }}" method="post">
+
+        <div class="form-group text-center" id="buscador">
+            <input class="form-control" name="search" placeholder="Search..">
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-secondary">Search</button>
+        </div>
+    </form>
+    </div>
+
+        <div class="container text-center " >
+
+            <ul>
+                {% for book in books %}
+                    <li id="lista">
+            
+                   <a href="{{ url_for('book', isbn=book.isbn)}}"> 
+                       {{ book.title }} , {{ book.author }} , {{ book.year }} </a> 
+                    
+                    </li>
+                {% endfor %}
+            </ul>
+    
+        </div>
+        <div>
+            <div class="container"  >
+                <h1>{{ message }}</h1>
+                <div class= "container message">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            <ul class="alert alert-secondary message text-center" role="alert">
+                            {% for message in messages %}
+                                <li>{{ message }}</li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+
+            </div>
+        </div>
+
+        
+
+    
+
+    
+
+{% endblock %}
